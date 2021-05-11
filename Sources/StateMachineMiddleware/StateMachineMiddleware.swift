@@ -22,7 +22,7 @@ public class StateMachineMiddleware<InputActionType, OutputActionType, StateType
         from: StateValue<Substate>,
         to: StateValue<Substate>,
         dispatch action: OutputActionType
-    ) {
+    ) -> StateMachineMiddleware {
         rules.append(
             StateMachineRule(
                 evaluateBefore: { previousState in
@@ -36,6 +36,7 @@ public class StateMachineMiddleware<InputActionType, OutputActionType, StateType
                 dispatchAction: action
             )
         )
+        return self
     }
 
 
